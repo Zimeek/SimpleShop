@@ -1,0 +1,44 @@
+﻿@using SimpleShop.Domain.Entities
+@model CartItem
+
+<article class="media">
+    <figure class="media-left">
+        <p class="image is-128x128">
+            <img src="~/assets/@Model.Product.ImagePath">
+        </p>
+    </figure>
+    <div class="media-content">
+        <div class="content">
+            <p class="is-size-5 mb-0">@Model.Product.Name</p>
+            <p class="mb-0">$@(Model.Product.Price * Model.Quantity)</p>
+            <div class="columns">
+                <div class="column is-4 is-8-mobile">
+                    <div class="field has-addons">
+                        <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="UpdateItem">
+                            <p class="control">
+                                <button class="button" type="submit" >-</button>
+                                <input type="hidden" name="itemId" value="@Model.Id" />
+                                <input type="hidden" name="quantity" value="-1" />
+                            </p>
+                        </form>
+                        <p class="control">
+                            <input class="input" type="text" value="@Model.Quantity" readonly style="text-align: center">
+                        </p>
+                        <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="UpdateItem">
+                            <p class="control">
+                                <button class="button" type="submit">+</button>
+                                <input type="hidden" name="itemId" value="@Model.Id" />
+                                <input type="hidden" name="quantity" value="1" />
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="media-right">
+        <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="DeleteItem">
+            <button class="delete" type="submit" name="itemId" value="@Model.Id"></button>
+        </form>
+    </div>
+</article>

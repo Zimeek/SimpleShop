@@ -1,0 +1,47 @@
+﻿@page
+@model SimpleShop.Web.Pages.Orders.IndexModel
+@{
+    ViewData["Title"] = "Orders";
+}
+
+<div class="container">
+    @if(Model.Orders.Any())
+    {
+        <div class="block has-text-centered-mobile">
+            <h1 class="title">My orders</h1>
+        </div>
+        <div class="list has-border has-visible-pointer-controls">
+            @foreach(var order in Model.Orders)
+            {
+                <div class="list-item p-5">
+                    <div class="list-item-content">
+                        <div class="list-item-title">
+                            Order #@order.Number
+                        </div>
+                        <div class="list-item-description">
+                            Order date: @order.CreatedDate.ToString("MMMM dd, yyyy H:mm")
+                        </div>
+                    </div>
+                    <div class="list-item-controls">
+                        <div class="is-right">
+                            <a class="button is-dark" asp-page="Details" asp-route-id="@order.Id">Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="block has-text-centered">
+            <span class="icon is-large">
+                <i class='bx bx-package bx-lg'></i>
+            </span>
+        </div>
+        <div class="has-text-centered">
+            <p class="subtitle has-text-weight-medium">You haven't placed any orders yet!</p>
+            <a class="button is-outlined" asp-area="" asp-page="/Index">Return to shop</a>
+        </div>
+    }
+</div>
+

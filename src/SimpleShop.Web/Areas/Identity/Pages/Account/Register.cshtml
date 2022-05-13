@@ -1,0 +1,53 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column is-6 box p-5" id="login-form">
+            <form method="post" asp-route-returnUrl="@Model.ReturnUrl">
+                <div asp-validation-summary="ModelOnly" class="has-text-danger"></div>
+                <div class="field">
+                    <label class="label" asp-for="Input.Email"></label>
+                    <div class="control">
+                        <input class="input" type="email" asp-for="Input.Email" />
+                        <span asp-validation-for="Input.Email" class="has-text-danger"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" asp-for="Input.Password"></label>
+                    <div class="control">
+                        <input class="input" type="password" asp-for="Input.Password" />
+                        <span asp-validation-for="Input.Password" class="has-text-danger"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" asp-for="Input.ConfirmPassword"></label>
+                    <div class="control">
+                        <input class="input" type="password" asp-for="Input.ConfirmPassword" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="has-text-danger"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button type="submit" class="button is-dark is-outlined">Submit</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="divider">OR</div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        Have an account already? <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Log in.</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

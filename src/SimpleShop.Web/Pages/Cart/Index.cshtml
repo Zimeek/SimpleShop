@@ -1,0 +1,37 @@
+﻿@page 
+@model SimpleShop.Web.Pages.Cart.IndexModel
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<div class="container">
+    @if (Model.Cart.Items.Any())
+    {
+        <div class="columns is-centered is-vcentered">
+            <div class="column has-border">
+                @foreach(var item in Model.Cart.Items)
+                {
+                    <partial name="Cart/_CartItem" model="item" />
+                }
+                <partial name="Cart/_TotalCost" model="Model.CartTotal" />
+                <div class="field mt-2">
+                    <div class="control is-flex is-justify-content-center">
+                        <a class="button is-dark" asp-page="Checkout" asp-area="">Proceed to checkout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="block has-text-centered">
+            <span class="icon is-large">
+                <i class='bx bx-cart bx-lg'></i>
+            </span>
+        </div>
+        <div class="has-text-centered">
+            <p class="has-text-weight-medium subtitle">Looks like your shopping cart is empty!</p>
+            <a class="button is-outlined" asp-area="" asp-page="/Index">Return to shop</a>
+        </div>
+    }
+</div>

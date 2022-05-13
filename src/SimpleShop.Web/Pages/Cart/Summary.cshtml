@@ -1,0 +1,17 @@
+﻿@page "{orderId:Guid}"
+@model SimpleShop.Web.Pages.Cart.SummaryModel
+@{
+}
+
+<div class="container has-text-centered">
+    <div class="block">
+            <span class="icon is-large">
+                <i class='bx bx-receipt bx-lg'></i>
+            </span>
+        </div>
+        <div>
+            <p class="title has-text-weight-medium">Thank you, @Model.Order.Details.FirstName!</p>
+            <p class="subtitle">Order #@Model.Order.Number has been placed.</p>
+            <a class="button is-outlined" asp-area="" asp-page="/Orders/Index">View all orders</a>
+        </div>
+</div>

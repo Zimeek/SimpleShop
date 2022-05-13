@@ -1,0 +1,54 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="columns is-centered">
+        <div class="column is-6 has-border p-5" id="login-form">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="has-text-danger"></div>
+                <div class="field">
+                    <label class="label" asp-for="Input.Email"></label>
+                    <div class="control">
+                        <input class="input" type="email" asp-for="Input.Email" />
+                        <span asp-validation-for="Input.Email" class="has-text-danger"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" asp-for="Input.Password"></label>
+                    <div class="control">
+                        <input class="input" type="password" asp-for="Input.Password" />
+                        <span asp-validation-for="Input.Password" class="has-text-danger"></span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox" asp-for="Input.RememberMe">
+                            <input type="checkbox" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button type="submit" class="button is-dark is-outlined">Submit</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="divider">OR</div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        Don't have an account yet? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Create now.</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

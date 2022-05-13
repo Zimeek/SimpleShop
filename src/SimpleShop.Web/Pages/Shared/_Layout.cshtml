@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] | SimpleShop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bulma/bulma-divider.min.css" />
+    <link rel="stylesheet" href="~/lib/bulma/bulma-list.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SimpleShop.Web.styles.css" asp-append-version="true" />
+</head>
+<body class="has-navbar-fixed-top">
+    <partial name="_Navbar" />
+    <section class="section" id="wrapper">
+        @RenderBody()
+    </section>
+    <footer class="footer has-border">
+        <div class="content has-text-centered">
+            <p><strong>SimpleShop</strong> created by Michał Szymczyk</p>
+            <a href="https://bulma.io" target="_blank">
+                <img src="~/assets/bulma-logo.png" style="width: 128px; height: 24px;" />
+            </a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

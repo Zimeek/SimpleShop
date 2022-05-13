@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SimpleShop.Domain.Entities
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<nav class="navbar is-fixed-top has-shadow is-white has-border" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item is-size-4" asp-page="/Index" asp-area="">SimpleShop</a>
+        <a class="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-end">
+            @if(SignInManager.IsSignedIn(User))
+            {
+                <a class="navbar-item" asp-page="/Cart/Index" asp-area="">
+                    <span class="icon-text">
+                        <span class="icon is-hidden-touch">
+                            <i class='bx bx-cart bx-sm'></i>
+                        </span>
+                        <span class="is-hidden-desktop">Cart</span>
+                    </span>
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link is-arrowless">
+                    <span class="icon-text">
+                        <span class="icon is-hidden-touch">
+                            <i class='bx bx-user bx-sm'></i>
+                        </span>                    
+                        <span class="is-hidden-desktop">Account</span>
+                    </span>
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item">@UserManager.GetUserName(User)</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" asp-page="/Orders/Index" asp-area="">My Orders</a>
+                        <a class="navbar-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <a class="navbar-item" asp-page="/Account/Login" asp-area="Identity">                  
+                    <span class="icon">
+                        <i class='bx bx-user bx-sm'></i>
+                    </span>
+                </a>
+            }
+        </div>
+    </div>
+</nav>

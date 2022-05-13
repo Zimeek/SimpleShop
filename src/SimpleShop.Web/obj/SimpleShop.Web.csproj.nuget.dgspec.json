@@ -1,0 +1,333 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Web\\SimpleShop.Web.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Application\\SimpleShop.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Application\\SimpleShop.Application.csproj",
+        "projectName": "SimpleShop.Application",
+        "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Application\\SimpleShop.Application.csproj",
+        "packagesPath": "C:\\Users\\Zimeek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Zimeek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\SimpleShop.Domain.csproj": {
+                "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\SimpleShop.Domain.csproj"
+              },
+              "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\SimpleShop.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\SimpleShop.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Ardalis.GuardClauses": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\SimpleShop.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\SimpleShop.Domain.csproj",
+        "projectName": "SimpleShop.Domain",
+        "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\SimpleShop.Domain.csproj",
+        "packagesPath": "C:\\Users\\Zimeek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Zimeek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\SimpleShop.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\SimpleShop.Infrastructure.csproj",
+        "projectName": "SimpleShop.Infrastructure",
+        "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\SimpleShop.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Zimeek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Zimeek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\SimpleShop.Domain.csproj": {
+                "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Domain\\SimpleShop.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Web\\SimpleShop.Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Web\\SimpleShop.Web.csproj",
+        "projectName": "SimpleShop.Web",
+        "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Web\\SimpleShop.Web.csproj",
+        "packagesPath": "C:\\Users\\Zimeek\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Web\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Zimeek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Application\\SimpleShop.Application.csproj": {
+                "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Application\\SimpleShop.Application.csproj"
+              },
+              "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\SimpleShop.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Zimeek\\source\\repos\\SimpleShop\\src\\SimpleShop.Infrastructure\\SimpleShop.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

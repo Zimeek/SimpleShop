@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="container">
+    @if(Model.Products.Any())
+    {
+        <div class="columns is-multiline">
+            @foreach(var product in Model.Products)
+            {
+                <div class="column is-one-quarter">
+                    <partial name="Products/_ProductCard" model="product">
+                </div>
+            }
+        </div>
+    }
+</div>

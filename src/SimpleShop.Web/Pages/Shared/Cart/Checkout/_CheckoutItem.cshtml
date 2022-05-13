@@ -1,0 +1,16 @@
+﻿@using SimpleShop.Domain.Entities
+@model CartItem
+
+<article class="media is-flex is-align-items-center">
+    <figure class="media-left">
+            <p class="image is-96x96">
+                <img src="~/assets/@Model.Product.ImagePath">
+            </p>
+    </figure>
+    <div class="media-content">
+        <p class="is-size-5">@Model.Product.Name</p>
+    </div>
+    <div class="media-right">
+        <p class="has-text-weight-medium">@Model.Quantity x $@Model.Product.Price</p>
+    </div>
+</article>

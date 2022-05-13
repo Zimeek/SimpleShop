@@ -1,0 +1,78 @@
+:root {
+    --light-gray: #eceff0;
+}
+
+.has-background-light-gray {
+    background: var(--light-gray);
+}
+
+html {
+    overflow-y: auto;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#wrapper {
+    flex: 1;
+}
+
+.card {
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#login-form {
+    border-radius: 0.25rem;
+}
+
+.dropdown-trigger .button {
+    border: none;
+}
+
+button.dropdown-item {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+}
+
+.media-content {
+    overflow: hidden;
+}
+
+.has-border {
+    border: 1px solid rgba(219,219,219,.5);
+}
+
+.has-border-top {
+    border-top: 1px solid rgba(219,219,219,.5);
+}
+
+.has-border-y {
+    border-top: 1px solid rgba(219,219,219,.5);
+    border-bottom: 1px solid rgba(219,219,219,.5);
+}
+
+.payment-selector input[type="radio"] {
+    opacity: 0;
+    width: 0;
+    position: fixed;
+}
+
+.payment-selector label {
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 1rem;
+}
+
+.payment-selector input[type="radio"] + label {
+    border: 1px solid rgba(219,219,219,.5);
+}
+
+.payment-selector input[type="radio"]:checked + label {
+    border: 1px solid #000;
+}
