@@ -1,15 +1,10 @@
 ﻿using MediatR;
 using SimpleShop.Domain.Entities;
 using SimpleShop.Infrastructure.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleShop.Application.Commands.Orders
 {
-    public static class CreateOrder
+    public static class CreateOrder //Zmienic to, nie trzeba sprawdzac
     {
         public record Command(Order order) : IRequest<bool>;
 

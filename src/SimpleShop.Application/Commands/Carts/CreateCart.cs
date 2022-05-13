@@ -26,7 +26,7 @@ namespace SimpleShop.Application.Commands.Carts
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
                 var cart = await _context.Carts
-                    .FirstOrDefaultAsync(c => c.UserId.Equals(request.userId));
+                    .SingleOrDefaultAsync(c => c.UserId.Equals(request.userId));
                 
                 if (cart is null)
                 {

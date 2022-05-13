@@ -1,11 +1,13 @@
-﻿using MediatR;
+﻿using Ardalis.GuardClauses;
+using MediatR;
+using SimpleShop.Domain.Entities;
 using SimpleShop.Infrastructure.Database;
 
 namespace SimpleShop.Application.Commands.Orders
 {
     public static class AddOrderDetails
     {
-        public record Command(SimpleShop.Domain.Entities.OrderDetails orderDetails) : IRequest<Unit>;
+        public record Command(OrderDetails orderDetails) : IRequest<Unit>;
 
         public class Handler : IRequestHandler<Command, Unit>
         {
@@ -18,6 +20,8 @@ namespace SimpleShop.Application.Commands.Orders
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+                Guard.Against.Null(request.orderDetails, nameof(request.orderDetails));
+
                 _context.OrderDetails.Add(request.orderDetails);
                 await _context.SaveChangesAsync();
 

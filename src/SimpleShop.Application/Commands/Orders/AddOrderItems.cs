@@ -1,12 +1,7 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using Ardalis.GuardClauses;
+using MediatR;
 using SimpleShop.Domain.Entities;
 using SimpleShop.Infrastructure.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleShop.Application.Commands.Orders
 {
@@ -25,6 +20,8 @@ namespace SimpleShop.Application.Commands.Orders
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
+                Guard.Against.NullOrEmpty(request.orderItems, nameof(request.orderItems));
+
                 await _context.OrderItems.AddRangeAsync(request.orderItems);
                 await _context.SaveChangesAsync();
 

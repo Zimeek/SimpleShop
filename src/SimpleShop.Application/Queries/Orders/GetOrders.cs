@@ -20,12 +20,14 @@ namespace SimpleShop.Application.Queries.Orders
 
             public async Task<List<Order>> Handle(Query request, CancellationToken cancellationToken)
             {
-                return await _context.Orders
+                var orders = await _context.Orders
                     .Where(o => o.UserId.Equals(request.userId))
                     .Include(o => o.Items)
                     .ThenInclude(oi => oi.Product)
                     .Include(o => o.Details)
                     .ToListAsync();
+
+                return orders;
             }
         }
     }

@@ -12,7 +12,7 @@ namespace SimpleShop.Application.Queries.Products
 {
     public static class GetProduct
     {
-        public record Query(string Id) : IRequest<Product>;
+        public record Query(string productId) : IRequest<Product>;
 
         public class Handler : IRequestHandler<Query, Product>
         {
@@ -26,12 +26,10 @@ namespace SimpleShop.Application.Queries.Products
             public async Task<Product> Handle(Query request, CancellationToken cancellationToken)
             {
                 var product = await _context.Products
-                    .Where(p => p.Id.Equals(request.Id))
                     .AsNoTracking()
-                    .FirstOrDefaultAsync();
+                    .SingleOrDefaultAsync(p => p.Id.Equals(request.productId));
 
-                return product is not null ? product : null;
-
+                return product;
             }
         }
     }

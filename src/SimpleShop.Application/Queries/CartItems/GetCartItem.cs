@@ -7,7 +7,7 @@ namespace SimpleShop.Application.Queries.CartItems
 {
     public static class GetCartItem
     {
-        public record Query(string id) : IRequest<CartItem>;
+        public record Query(string itemId) : IRequest<CartItem>;
 
         public class Handler : IRequestHandler<Query, CartItem>
         {
@@ -22,7 +22,7 @@ namespace SimpleShop.Application.Queries.CartItems
             {
                 var product = await _context.CartItems
                     .Include(p => p.Product)
-                    .FirstOrDefaultAsync(p => p.Id.Equals(request.id));
+                    .SingleOrDefaultAsync(p => p.Id.Equals(request.itemId));
 
                 return product;
             }

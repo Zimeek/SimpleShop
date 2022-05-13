@@ -24,7 +24,7 @@ namespace SimpleShop.Application.Queries.Carts
                     .Include(c => c.Items)
                     .ThenInclude(p => p.Product)
                     .AsNoTracking()
-                    .FirstOrDefaultAsync(c => c.UserId.Equals(request.userId));
+                    .SingleOrDefaultAsync(c => c.UserId.Equals(request.userId));
 
                 return cart;
             }
