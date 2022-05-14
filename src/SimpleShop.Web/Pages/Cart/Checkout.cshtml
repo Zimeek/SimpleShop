@@ -15,7 +15,7 @@
             {
                 <partial name="Cart/Checkout/_CheckoutItem" model="item" />
             }
-            <partial name="Cart/_TotalCost" model="Model.CartTotal" />
+            <partial name="Cart/_TotalCost" model="Model.Cart.GetTotal()" />
         </div>
         <div class="column is-4 m-1 has-border">
             <form class="mb-5" method="post">
@@ -126,7 +126,7 @@
                     <span asp-validation-for="Input.PaymentMethod" class="has-text-danger"></span>
                 </div>
                 <div class="has-text-centered">
-                    <button type="submit" class="button is-success is-medium">Pay $@Model.CartTotal</button>
+                    <button type="submit" class="button is-success is-medium">Pay $@Model.Cart.GetTotal()</button>
                 </div>
             </form>
         </div>     

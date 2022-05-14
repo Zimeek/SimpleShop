@@ -22,7 +22,6 @@ namespace SimpleShop.Web.Pages.Cart
         }
 
         public Domain.Entities.Cart Cart { get; set; }
-        public decimal CartTotal { get; private set; } = 0m;
         [BindProperty]
         public InputModel Input { get; set; }
 
@@ -53,10 +52,9 @@ namespace SimpleShop.Web.Pages.Cart
             var userId = _userManager.GetUserId(User);
 
             Cart = await _mediator.Send(new GetCart.Query(userId));
-            CartTotal = await _mediator.Send(new GetCartTotal.Query(Cart));
-            if (!Cart.Items.Any())
+            if (Cart.IsEmpty)
             {
-                return LocalRedirect("Index");
+                return RedirectToPage("Index");
             }
             return Page();
         }
@@ -66,10 +64,9 @@ namespace SimpleShop.Web.Pages.Cart
             var userId = _userManager.GetUserId(User);
 
             Cart = await _mediator.Send(new GetCart.Query(userId));
-            CartTotal = await _mediator.Send(new GetCartTotal.Query(Cart));
-            if (!Cart.Items.Any())
+            if (Cart.IsEmpty)
             {
-                return LocalRedirect("Index");
+                return RedirectToPage("Index");
             }
 
             if (!ModelState.IsValid)
@@ -121,7 +118,6 @@ namespace SimpleShop.Web.Pages.Cart
 
             }
 
-            //return LocalRedirect("Index");
             return RedirectToPage("Summary", new { orderId = order.Id });
         }
     }

@@ -1,4 +1,3 @@
-using Ardalis.GuardClauses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -21,7 +20,6 @@ namespace SimpleShop.Web.Pages.Cart
         public async Task<IActionResult> OnGetAsync(string orderId)
         {
             Order = await _mediator.Send(new GetOrder.Query(orderId));
-
             if (Order is null)
             {
                 return RedirectToPage("/Orders/Index", new { area = "" });
