@@ -9,10 +9,11 @@ namespace SimpleShop.Infrastructure.Database.Configurations
         public void Configure(EntityTypeBuilder<Cart> builder)
         {
             builder
+                .Ignore(c => c.IsEmpty)
                 .HasKey(c => c.Id);
 
             builder
-                .HasMany<CartItem>(c => c.Items)
+                .HasMany(c => c.Items)
                 .WithOne(ci => ci.Cart)
                 .HasForeignKey(ci => ci.CartId)
                 .OnDelete(DeleteBehavior.Cascade);

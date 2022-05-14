@@ -20,13 +20,11 @@ namespace SimpleShop.Web.Pages.Cart
         }
 
         public Domain.Entities.Cart Cart { get; private set; }
-        public decimal CartTotal { get; private set; } = 0m;
 
         public async Task<IActionResult> OnGetAsync()
         {
             var userId = _userManager.GetUserId(User);
             Cart = await _mediator.Send(new GetCart.Query(userId));
-            CartTotal = await _mediator.Send(new GetCartTotal.Query(Cart));
 
             return Page();
         }
@@ -36,11 +34,12 @@ namespace SimpleShop.Web.Pages.Cart
             var userId = _userManager.GetUserId(User);
             Cart = await _mediator.Send(new GetCart.Query(userId));
 
-            var item = Cart.Items.FirstOrDefault(i => i.Id.Equals(itemId));
+            var item = Cart.Items.SingleOrDefault(i => i.Id.Equals(itemId));
             if (item is not null)
             {
                 await _mediator.Send(new DeleteItemFromCart.Command(item));
             }
+
             return RedirectToPage("Index");
         }
 

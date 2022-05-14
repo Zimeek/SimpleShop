@@ -5,7 +5,7 @@
 }
 
 <div class="container">
-    @if (Model.Cart.Items.Any())
+    @if (!Model.Cart.IsEmpty)
     {
         <div class="columns is-centered is-vcentered">
             <div class="column has-border">
@@ -13,7 +13,7 @@
                 {
                     <partial name="Cart/_CartItem" model="item" />
                 }
-                <partial name="Cart/_TotalCost" model="Model.CartTotal" />
+                <partial name="Cart/_TotalCost" model="Model.Cart.GetTotal()" />
                 <div class="field mt-2">
                     <div class="control is-flex is-justify-content-center">
                         <a class="button is-dark" asp-page="Checkout" asp-area="">Proceed to checkout</a>
