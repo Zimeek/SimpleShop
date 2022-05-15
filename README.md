@@ -33,7 +33,9 @@ To get a local copy up and running follow these simple example steps.
    ```
 
 ## Screenshots
-![usage1](assets/usage1.png)
-![usage2](assets/usage2.png)
-![usage3](assets/usage3.png)
+<p align="center">
+   <img src="assets/usage1.png" style="margin-bottom: 20px;" />
+   <img src="assets/usage2.png" style="margin-bottom: 20px;" />
+   <img src="assets/usage3.png"/>
+</p>
 
