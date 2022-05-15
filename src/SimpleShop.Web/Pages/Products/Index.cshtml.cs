@@ -19,6 +19,8 @@ namespace SimpleShop.Web.Pages.Products
         }
 
         public Product Product { get; set; }
+        [BindProperty]
+        public int Size { get; set; }
         public IEnumerable<Product> RelatedProducts { get; set; }
 
         public async Task<IActionResult> OnGetAsync(string id)

@@ -37,7 +37,7 @@ namespace SimpleShop.Web.Pages.Cart
             var item = Cart.Items.SingleOrDefault(i => i.Id.Equals(itemId));
             if (item is not null)
             {
-                await _mediator.Send(new DeleteItemFromCart.Command(item));
+                await _mediator.Send(new DeleteItemFromCart.Command(item.Id));
             }
 
             return RedirectToPage("Index");
@@ -48,24 +48,24 @@ namespace SimpleShop.Web.Pages.Cart
             var userId = _userManager.GetUserId(User);
             Cart = await _mediator.Send(new GetCart.Query(userId));
 
-            var item = Cart.Items.FirstOrDefault(i => i.Id.Equals(itemId));
+            var item = Cart.Items.SingleOrDefault(i => i.Id.Equals(itemId));
             if (item is not null)
             {
-                await _mediator.Send(new UpdateCartItemQuantity.Command(item, quantity));
+                await _mediator.Send(new UpdateCartItem.Command(item.Id, quantity));
             }
 
             return RedirectToPage("Index");
         }
 
-        public async Task<IActionResult> OnPostAddItemAsync(string productId)
+        public async Task<IActionResult> OnPostAddItemAsync(string productId, int size)
         {
             var userId = _userManager.GetUserId(User);
             Cart = await _mediator.Send(new GetCart.Query(userId));
 
-            var item = Cart.Items.FirstOrDefault(p => p.ProductId.Equals(productId));
+            var item = Cart.Items.SingleOrDefault(i => i.ProductId.Equals(productId) && i.Size.Equals(size));
             if (item is not null)
             {
-                await _mediator.Send(new UpdateCartItemQuantity.Command(item, 1));
+                await _mediator.Send(new UpdateCartItem.Command(item.Id, 1)); //w tej metodzie wywala errora
             }
             else
             {
@@ -74,6 +74,7 @@ namespace SimpleShop.Web.Pages.Cart
                     Id = Guid.NewGuid().ToString(),
                     ProductId = productId,
                     CartId = Cart.Id,
+                    Size = size,
                     Quantity = 1
                 };
                 await _mediator.Send(new AddItemToCart.Command(item));

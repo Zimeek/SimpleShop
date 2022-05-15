@@ -22,32 +22,44 @@
                 <p class="is-size-3">@Model.Product.Name</p>
                 <p class="is-size-4 has-text-weight-medium">$@Model.Product.Price</p>
                 <div class="my-5 py-5 has-border-y">
-                    <div class="field">
-                        <div class="control">
-                            @if(SignInManager.IsSignedIn(User))
-                            {
-                                <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="AddItem" asp-route-productId="@Model.Product.Id">
+                    @if(SignInManager.IsSignedIn(User))
+                    {
+                        <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="AddItem" asp-route-productId="@Model.Product.Id" asp-route-size="@Model.Size">
+                            <div class="field">
+                                <label class="label">Size</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select asp-for="Size">
+                                            <option selected value="42">42</option>
+                                            <option value="43">43</option>
+                                            <option value="44">44</option>
+                                            <option value="45">45</option>
+                                            <option value="46">46</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
                                     <button class="button is-dark" type="submit">
                                         Add to cart
                                     </button>
-                                </form>
-                            }
-                            else
-                            { 
-                                <a class="button is-dark" asp-page="/Account/Login" asp-area="Identity">
-                                    Add to cart
-                                </a>
-                            }
-                        </div>
-                    </div>
-                    <div class="field">
-                        <span class="icon-text">
-                            <span class="icon">
-                                <i class='bx bx-package'></i>
-                            </span>
-                            <span class="is-underlined">Free delivery</span>
-                        </span>
-                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <span class="icon-text">
+                                    <span class="icon">
+                                        <i class='bx bx-package'></i>
+                                    </span>
+                                    <span class="is-underlined">Free delivery</span>
+                                </span>
+                            </div>
+                        </form>
+                    }
+                    else
+                    {
+                        <p class="has-text-danger">Please log in in order to buy @Model.Product.Name</p>
+                    }
                 </div>           
                 <p class="is-size-5 block">Description</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit, dui quis luctus tincidunt, metus arcu pulvinar nunc, quis aliquet neque risus id purus. Suspendisse potenti. Phasellus suscipit varius sapien sit amet egestas. Vivamus molestie augue vitae aliquam eleifend. Vivamus eu justo sit amet diam laoreet faucibus vel vel mi. Quisque dictum mattis mi, vel venenatis diam maximus quis. Etiam at tristique ex. Maecenas ornare mattis bibendum.

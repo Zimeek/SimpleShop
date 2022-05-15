@@ -12,13 +12,13 @@ namespace SimpleShop.Infrastructure.Database.Configurations
                 .HasKey(p => p.Id);
 
             builder
-                .HasMany<CartItem>(p => p.CartItems)
+                .HasMany(p => p.CartItems)
                 .WithOne(ci => ci.Product)
                 .HasForeignKey(ci => ci.ProductId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder
-                .HasMany<OrderItem>(p => p.OrderItems)
+                .HasMany(p => p.OrderItems)
                 .WithOne(oi => oi.Product)
                 .HasForeignKey(oi => oi.ProductId);
 

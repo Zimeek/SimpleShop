@@ -21,9 +21,9 @@ namespace SimpleShop.Application.Queries.Carts
             public async Task<Cart> Handle(Query request, CancellationToken cancellationToken)
             {
                 var cart = await _context.Carts
+                    .AsNoTracking()
                     .Include(c => c.Items)
                     .ThenInclude(p => p.Product)
-                    .AsNoTracking()
                     .SingleOrDefaultAsync(c => c.UserId.Equals(request.userId));
 
                 return cart;
