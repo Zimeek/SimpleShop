@@ -1,6 +1,7 @@
 ﻿@page "{id:Guid}"
 @model SimpleShop.Web.Pages.Orders.DetailsModel
 @{
+    ViewData["Title"] = $"Order #{Model.Order.Number}";
 }
 
 <div class="container has-border p-5">
@@ -27,8 +28,9 @@
                 <div class="media-content">
                     <div class="content">
                         <p class="is-size-5 mb-0">@item.Product.Name</p>
-                        <p class="mb-0 is-size-5 has-text-weight-bold">$@item.Product.Price</p>
+                        <p class="mb-0">Size: @item.Size</p>
                         <p class="mb-0 has-text-grey">Quantity: @item.Quantity</p>
+                        <p class="mb-0 is-size-5 has-text-weight-bold">$@(item.Product.Price * item.Quantity)</p>
                     </div>
                 </div>
             </article>

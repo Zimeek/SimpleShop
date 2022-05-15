@@ -92,7 +92,8 @@ namespace SimpleShop.Web.Pages.Cart
                         Id = Guid.NewGuid().ToString(),
                         ProductId = cartItem.ProductId,
                         OrderId = order.Id,
-                        Quantity = cartItem.Quantity
+                        Quantity = cartItem.Quantity,
+                        Size = cartItem.Size
                     });
                 }
 
@@ -114,8 +115,6 @@ namespace SimpleShop.Web.Pages.Cart
                 await _mediator.Send(new AddOrderItems.Command(orderItems));
                 await _mediator.Send(new AddOrderDetails.Command(orderDetails));
                 await _mediator.Send(new ClearCart.Command(Cart.Id));
-
-
             }
 
             return RedirectToPage("Summary", new { orderId = order.Id });

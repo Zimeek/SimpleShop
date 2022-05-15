@@ -1,6 +1,7 @@
 ﻿@page "{orderId:Guid}"
 @model SimpleShop.Web.Pages.Cart.SummaryModel
 @{
+    ViewData["Title"] = $"Order #{Model.Order.Number}";
 }
 
 <div class="container has-text-centered">

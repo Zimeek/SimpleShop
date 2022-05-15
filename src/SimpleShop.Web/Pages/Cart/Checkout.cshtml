@@ -13,7 +13,7 @@
             </div>
             @foreach(var item in Model.Cart.Items)
             {
-                <partial name="Cart/Checkout/_CheckoutItem" model="item" />
+                <partial name="Cart/_CheckoutItem" model="item" />
             }
             <partial name="Cart/_TotalCost" model="Model.Cart.GetTotal()" />
         </div>

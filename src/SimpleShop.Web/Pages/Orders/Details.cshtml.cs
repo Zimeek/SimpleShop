@@ -22,7 +22,7 @@ namespace SimpleShop.Web.Pages.Orders
             Order = await _mediator.Send(new GetOrder.Query(id));
             if (Order is null)
             {
-                return LocalRedirect("Index");
+                return RedirectToPage("Index");
             }
 
             return Page();
