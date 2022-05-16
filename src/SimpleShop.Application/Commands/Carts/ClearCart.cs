@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleShop.Application.Commands.CartItems
+namespace SimpleShop.Application.Commands.Carts
 {
     public static class ClearCart
     {
@@ -30,7 +30,7 @@ namespace SimpleShop.Application.Commands.CartItems
                     .ToListAsync();
 
                 Guard.Against.NullOrEmpty(cartItems, nameof(cartItems));
-       
+
                 _context.RemoveRange(cartItems);
                 await _context.SaveChangesAsync();
 

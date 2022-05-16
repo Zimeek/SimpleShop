@@ -1,12 +1,13 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using Ardalis.GuardClauses;
+using MediatR;
+using SimpleShop.Domain.Entities;
 using SimpleShop.Infrastructure.Database;
 
 namespace SimpleShop.Application.Commands.CartItems
 {
-    public static class DeleteItemFromCart
+    public static class AddCartItem
     {
-        public record Command(string itemId) : IRequest<Unit>;
+        public record Command(CartItem item) : IRequest<Unit>;
 
         public class Handler : IRequestHandler<Command, Unit>
         {
@@ -19,9 +20,9 @@ namespace SimpleShop.Application.Commands.CartItems
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var item = await _context.CartItems.SingleOrDefaultAsync(i => i.Id.Equals(request.itemId));
-
-                _context.CartItems.Remove(item);
+                Guard.Against.Null(request.item, nameof(request.item));
+ 
+                _context.CartItems.Add(request.item);
                 await _context.SaveChangesAsync();
 
                 return Unit.Value;

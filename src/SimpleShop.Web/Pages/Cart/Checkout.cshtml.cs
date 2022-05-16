@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SimpleShop.Application.Commands.CartItems;
+using SimpleShop.Application.Commands.Carts;
 using SimpleShop.Application.Commands.Orders;
 using SimpleShop.Application.Queries.Carts;
 using SimpleShop.Domain.Entities;

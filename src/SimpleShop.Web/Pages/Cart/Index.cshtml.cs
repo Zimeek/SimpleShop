@@ -37,7 +37,7 @@ namespace SimpleShop.Web.Pages.Cart
             var item = Cart.Items.SingleOrDefault(i => i.Id.Equals(itemId));
             if (item is not null)
             {
-                await _mediator.Send(new DeleteItemFromCart.Command(item.Id));
+                await _mediator.Send(new DeleteCartItem.Command(item.Id));
             }
 
             return RedirectToPage("Index");
@@ -77,7 +77,7 @@ namespace SimpleShop.Web.Pages.Cart
                     Size = size,
                     Quantity = 1
                 };
-                await _mediator.Send(new AddItemToCart.Command(item));
+                await _mediator.Send(new AddCartItem.Command(item));
             }
 
             return RedirectToPage("Index");
