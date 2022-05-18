@@ -6,10 +6,10 @@ Simple but fully functional e-commerce website built with .NET Core 6.
 ### Technologies used
 
 * ASP.NET Core Razor Pages
-* Entity Framework Core 6.0
-* MediatR
-* Guard Clauses
-* Bulma CSS
+* [Entity Framework Core 6.0](https://github.com/dotnet/efcore)
+* [MediatR](https://github.com/jbogard/MediatR)
+* [Guard Clauses](https://github.com/ardalis/GuardClauses)
+* [Bulma CSS](https://github.com/jgthms/bulma)
 
 
 
@@ -26,11 +26,11 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-1. Configure connection string in appsettings.json (SimpleShop.Web)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/Zimeek/SimpleShop.git
    ```
+2. Configure connection string in appsettings.json (SimpleShop.Web)
 
 ## Screenshots
 <p align="center">
