@@ -9,13 +9,13 @@ namespace SimpleShop.Infrastructure.Database.Configurations
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
             builder
-                .HasOne<Cart>(au => au.Cart)
+                .HasOne(au => au.Cart)
                 .WithOne(c => c.User)
                 .HasForeignKey<Cart>(c => c.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder
-                .HasMany<Order>(au => au.Orders)
+                .HasMany(au => au.Orders)
                 .WithOne(o => o.User)
                 .HasForeignKey(o => o.UserId)
                 .OnDelete(DeleteBehavior.Cascade);

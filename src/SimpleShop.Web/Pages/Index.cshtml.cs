@@ -21,7 +21,7 @@ namespace SimpleShop.Web.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
-            Products = await _mediator.Send(new GetAllProducts.Query());
+            Products = await _mediator.Send(new GetProducts.Query());
             
             return Page();
         }

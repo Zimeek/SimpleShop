@@ -13,9 +13,31 @@
             </div>
             @foreach(var item in Model.Cart.Items)
             {
-                <partial name="Cart/_CheckoutItem" model="item" />
+                <article class="media is-flex is-align-items-center">
+                    <figure class="media-left">
+                            <p class="image is-96x96">
+                                <img src="~/assets/@item.Product.ImagePath">
+                            </p>
+                    </figure>
+                    <div class="media-content">
+                        <p class="is-size-5 mb-0">@item.Product.Name</p>
+                        <p class="mb-0">Size: @item.Size</p>
+                    </div>
+                    <div class="media-right">
+                        <p class="has-text-weight-medium">@item.Quantity x $@item.Product.Price</p>
+                    </div>
+                </article>
             }
-            <partial name="Cart/_TotalCost" model="Model.Cart.GetTotal()" />
+            <article class="media is-flex is-justify-content-space-between">
+                <div class="media-left">
+                    <p class="mb-2">Shipping:</p>
+                    <p class="has-text-weight-medium">Total:</p>
+                </div>
+                <div class="media-right">
+                    <p class="has-text-success mb-2">FREE</p>
+                    <p class="has-text-weight-medium">$@Model.Cart.GetTotal()</p>
+                </div>
+            </article>
         </div>
         <div class="column is-4 m-1 has-border">
             <form class="mb-5" method="post">

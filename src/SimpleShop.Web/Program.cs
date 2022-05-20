@@ -6,7 +6,6 @@ using SimpleShop.Infrastructure.Database;
 using SimpleShop.Web.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
@@ -19,7 +18,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
-builder.Services.AddMediatR(typeof(SimpleShop.Application.Queries.Products.GetAllProducts));
+builder.Services.AddMediatR(typeof(SimpleShop.Application.Queries.Products.GetProducts));
 
 builder.Services.AddAuthorization(options =>
 {
@@ -30,6 +29,10 @@ builder.Services.AddRazorPages(options =>
 {
     options.Conventions.AuthorizeFolder("/Cart", "IsAuthorized");
     options.Conventions.AuthorizeFolder("/Orders", "IsAuthorized");
+
+    options.Conventions.AddAreaPageRoute("Identity", "/Account/Register", "/Register");
+    options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "/Login");
+    options.Conventions.AddAreaPageRoute("Identity", "/Account/Logout", "/Logout");
 });
 
 var app = builder.Build();

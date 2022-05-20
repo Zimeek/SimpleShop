@@ -11,9 +11,59 @@
             <div class="column has-border">
                 @foreach(var item in Model.Cart.Items)
                 {
-                    <partial name="Cart/_CartItem" model="item" />
+                    <article class="media">
+                        <figure class="media-left">
+                            <p class="image is-128x128">
+                                <img src="~/assets/@item.Product.ImagePath">
+                            </p>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p class="is-size-5 mb-0">@item.Product.Name</p>
+                                <p class="mb-0">$@(item.Product.Price * item.Quantity)</p>
+                                <p class="mb-0">Size: @item.Size</p>
+                                <div class="columns">
+                                    <div class="column is-4 is-8-mobile">
+                                        <div class="field has-addons">
+                                            <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="UpdateItem">
+                                                <p class="control">
+                                                    <button class="button" type="submit" >-</button>
+                                                    <input type="hidden" name="itemId" value="@item.Id" />
+                                                    <input type="hidden" name="quantity" value="-1" />
+                                                </p>
+                                            </form>
+                                            <p class="control">
+                                                <input class="input" type="text" value="@item.Quantity" readonly style="text-align: center">
+                                            </p>
+                                            <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="UpdateItem">
+                                                <p class="control">
+                                                    <button class="button" type="submit">+</button>
+                                                    <input type="hidden" name="itemId" value="@item.Id" />
+                                                    <input type="hidden" name="quantity" value="1" />
+                                                </p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="media-right">
+                            <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="DeleteItem">
+                                <button class="delete" type="submit" name="itemId" value="@item.Id"></button>
+                            </form>
+                        </div>
+                    </article>
                 }
-                <partial name="Cart/_TotalCost" model="Model.Cart.GetTotal()" />
+                <article class="media is-flex is-justify-content-space-between">
+                    <div class="media-left">
+                        <p class="mb-2">Shipping:</p>
+                        <p class="has-text-weight-medium">Total:</p>
+                    </div>
+                    <div class="media-right">
+                        <p class="has-text-success mb-2">FREE</p>
+                        <p class="has-text-weight-medium">$@Model.Cart.GetTotal()</p>
+                    </div>
+                </article>
                 <div class="field mt-2">
                     <div class="control is-flex is-justify-content-center">
                         <a class="button is-dark" asp-page="Checkout" asp-area="">Proceed to checkout</a>

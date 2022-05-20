@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SimpleShop.Application.Queries.Products
 {
-    public static class GetAllProducts
+    public static class GetProducts
     {
         public record Query() : IRequest<List<Product>>;
 

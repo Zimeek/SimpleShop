@@ -10,7 +10,19 @@
             @foreach(var product in Model.Products)
             {
                 <div class="column is-one-quarter">
-                    <partial name="Products/_ProductCard" model="product">
+                    <div class="card">
+                        <div class="card-image">
+                            <a asp-route-id="@product.Id" asp-page="Products/Index" asp-area="">
+                                <figure class="image is-square">
+                                    <img src="~/assets/@product.ImagePath">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="card-content pt-1 pl-0">
+                            <p class="is-size-5">@product.Name</p>
+                            <p class="has-text-weight-medium">$@product.Price</p>
+                        </div>
+                    </div>
                 </div>
             }
         </div>
