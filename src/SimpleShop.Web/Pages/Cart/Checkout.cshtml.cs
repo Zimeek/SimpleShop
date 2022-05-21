@@ -1,4 +1,4 @@
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -27,23 +27,39 @@ namespace SimpleShop.Web.Pages.Cart
 
         public class InputModel
         {
-            [Required(ErrorMessage = "First name is required.")]
+            [Required(ErrorMessage = "Imię jest wymagane.")]
+            [RegularExpression(@"^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$", ErrorMessage = "Błędny format imienia.")]
             public string FirstName { get; set; }
-            [Required(ErrorMessage = "Last name is required.")]
+
+            [Required(ErrorMessage = "Nazwisko jest wymagane.")]
+            [RegularExpression(@"^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$", ErrorMessage = "Błędny format nazwiska.")]
             public string LastName { get; set; }
-            [Required(ErrorMessage = "Address is required.")]
-            public string Address { get; set; }
-            [Required(ErrorMessage = "Apartment is required.")]
+
+            [Required(ErrorMessage = "Nazwa ulicy jest wymagana.")]
+            [RegularExpression(@"^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$", ErrorMessage = "Błędny format nazwy ulicy.")]
+            public string Street { get; set; }
+
+            [Required(ErrorMessage = "Numer budynku/lokalu jest wymagany.")]
+            [RegularExpression(@"[1-9]\d*(\s*[-/]\s*[1-9]\d*)?(\s?[a-zA-Z])?", ErrorMessage = "Błędny format numeru budynku/lokalu.")]
             public string Apartment { get; set; }
-            [Required(ErrorMessage = "City is required.")]
+
+            [Required(ErrorMessage = "Nazwa miejscowości jest wymagana.")]
+            [RegularExpression(@"^[^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$", ErrorMessage = "Błędny format nazwy miejscowości.")]
             public string City { get; set; }
-            [Required(ErrorMessage = "Postal code is required.")]
+
+            [Required(ErrorMessage = "Kod pocztowy jest wymagany.")]
+            [RegularExpression(@"^[a-z0-9][a-z0-9\- ]{0,10}[a-z0-9]$", ErrorMessage = "Błędny format kodu pocztowego.")]
             public string PostalCode { get; set; }
-            [Required(ErrorMessage = "Phone number is required.")]
+
+            [Required(ErrorMessage = "Numer telefonu komórkowego jest wymagany.")]
+            [RegularExpression(@"(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)", ErrorMessage = "Błędny format numeru komórkowego.")]
             public string Phone { get; set; }
-            [Required(ErrorMessage = "Email address is required.")]
+
+            [Required(ErrorMessage = "Adres e-mail jest wymagany.")]
+            [EmailAddress(ErrorMessage = "Błędny format adresu e-mail.")]
             public string Email { get; set; }
-            [Required(ErrorMessage = "Payment method is required.")]
+
+            [Required(ErrorMessage = "Metoda płatności jest wymagana.")]
             public string PaymentMethod { get; set; }
         }
 
@@ -103,7 +119,7 @@ namespace SimpleShop.Web.Pages.Cart
                     OrderId = order.Id,
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
-                    Address = Input.Address,
+                    Street = Input.Street,
                     Apartment = Input.Apartment,
                     City = Input.City,
                     PostalCode = Input.PostalCode,

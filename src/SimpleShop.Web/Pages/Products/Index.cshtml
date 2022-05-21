@@ -20,13 +20,13 @@
             </div>
             <div class="column is-4">
                 <p class="is-size-3">@Model.Product.Name</p>
-                <p class="is-size-4 has-text-weight-medium">$@Model.Product.Price</p>
+                <p class="is-size-4 has-text-weight-medium">@Model.Product.Price zł</p>
                 <div class="my-5 py-5 has-border-y">
                     @if(SignInManager.IsSignedIn(User))
                     {
                         <form method="post" asp-page="/Cart/Index" asp-area="" asp-page-handler="AddItem" asp-route-productId="@Model.Product.Id" asp-route-size="@Model.Size">
                             <div class="field">
-                                <label class="label">Size</label>
+                                <label class="label">Rozmiar</label>
                                 <div class="control">
                                     <div class="select">
                                         <select asp-for="Size">
@@ -42,7 +42,7 @@
                             <div class="field">
                                 <div class="control">
                                     <button class="button is-dark" type="submit">
-                                        Add to cart
+                                        Dodaj do koszyka
                                     </button>
                                 </div>
                             </div>
@@ -51,17 +51,17 @@
                                     <span class="icon">
                                         <i class='bx bx-package'></i>
                                     </span>
-                                    <span class="is-underlined">Free delivery</span>
+                                    <span class="is-underlined">Darmowa dostawa</span>
                                 </span>
                             </div>
                         </form>
                     }
                     else
                     {
-                        <p class="has-text-danger">Please log in in order to buy @Model.Product.Name</p>
+                        <p class="has-text-danger">Zaloguj się aby kupić @Model.Product.Name</p>
                     }
                 </div>           
-                <p class="is-size-5 block">Description</p>
+                <p class="is-size-5 block">Opis</p>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec suscipit, dui quis luctus tincidunt, metus arcu pulvinar nunc, quis aliquet neque risus id purus. Suspendisse potenti. Phasellus suscipit varius sapien sit amet egestas. Vivamus molestie augue vitae aliquam eleifend. Vivamus eu justo sit amet diam laoreet faucibus vel vel mi. Quisque dictum mattis mi, vel venenatis diam maximus quis. Etiam at tristique ex. Maecenas ornare mattis bibendum.
 
 Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent et aliquam velit. Proin scelerisque nisi eros, sed vulputate lorem mollis et. Praesent ultricies felis vel nibh euismod gravida.</p>
@@ -69,7 +69,7 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
         </div>
         <div class="block has-text-centered">
             <p class="is-size-4">
-                Related products
+                Podobne produkty
             </p>
         </div>
         <div class="columns">        
@@ -88,7 +88,7 @@ Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac tu
                             </div>
                             <div class="card-content pt-1 pl-0">
                                 <p class="is-size-5">@relatedProduct.Name</p>
-                                <p class="has-text-weight-medium">$@relatedProduct.Price</p>
+                                <p class="has-text-weight-medium">@relatedProduct.Price zł</p>
                             </div>
                         </div>
                     </div>

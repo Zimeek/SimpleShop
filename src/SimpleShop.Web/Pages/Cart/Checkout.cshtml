@@ -1,7 +1,7 @@
 ﻿@page
 @model SimpleShop.Web.Pages.Cart.CheckoutModel
 @{
-    ViewData["Title"] = "Checkout";
+    ViewData["Title"] = "Kasa";
 }
 
 <div class="container">
@@ -9,7 +9,7 @@
         <div class="column is-7 m-1 has-border">
             
             <div class="block has-text-centered">
-                <p class="is-size-4">Cart summary</p>
+                <p class="is-size-4">Podsumowanie koszyka</p>
             </div>
             @foreach(var item in Model.Cart.Items)
             {
@@ -21,41 +21,41 @@
                     </figure>
                     <div class="media-content">
                         <p class="is-size-5 mb-0">@item.Product.Name</p>
-                        <p class="mb-0">Size: @item.Size</p>
+                        <p class="mb-0">Rozmiar: @item.Size</p>
                     </div>
                     <div class="media-right">
-                        <p class="has-text-weight-medium">@item.Quantity x $@item.Product.Price</p>
+                        <p class="has-text-weight-medium">@item.Quantity x @item.Product.Price zł</p>
                     </div>
                 </article>
             }
             <article class="media is-flex is-justify-content-space-between">
                 <div class="media-left">
-                    <p class="mb-2">Shipping:</p>
-                    <p class="has-text-weight-medium">Total:</p>
+                    <p class="mb-2">Dostawa:</p>
+                    <p class="has-text-weight-medium">Suma:</p>
                 </div>
                 <div class="media-right">
-                    <p class="has-text-success mb-2">FREE</p>
-                    <p class="has-text-weight-medium">$@Model.Cart.GetTotal()</p>
+                    <p class="has-text-success mb-2">DARMOWA</p>
+                    <p class="has-text-weight-medium">@Model.Cart.GetTotal() zł</p>
                 </div>
             </article>
         </div>
         <div class="column is-4 m-1 has-border">
             <form class="mb-5" method="post">
                 <div class="block has-text-centered">
-                    <p class="is-size-4">Delivery information</p>
+                    <p class="is-size-4">Dostawa</p>
                 </div>
                 <div asp-validation-summary="ModelOnly" class="has-text-danger"></div>
                 <div class="field">
                     <div class="columns">
                         <div class="column">
                             <div class="control">
-                                <input class="input" asp-for="Input.FirstName" type="text" placeholder="First Name">
+                                <input class="input" asp-for="Input.FirstName" type="text" placeholder="Imię">
                                 <span asp-validation-for="Input.FirstName" class="has-text-danger"></span>
                             </div>
                         </div>
                         <div class="column">
                             <div class="control">
-                                <input class="input" asp-for="Input.LastName" type="text" placeholder="Last Name">
+                                <input class="input" asp-for="Input.LastName" type="text" placeholder="Nazwisko">
                                 <span asp-validation-for="Input.LastName" class="has-text-danger"></span>
                             </div>
                         </div>
@@ -65,16 +65,16 @@
                     <div class="columns">
                         <div class="column is-8">
                             <div class="control has-icons-left">
-                                <input class="input" asp-for="Input.Address" type="text" placeholder="Address">
+                                <input class="input" asp-for="Input.Street" type="text" placeholder="Ulica">
                                 <span class="icon is-small is-left">
                                     <i class='bx bx-home' ></i>
                                 </span>
-                                <span asp-validation-for="Input.Address" class="has-text-danger"></span>
+                                <span asp-validation-for="Input.Street" class="has-text-danger"></span>
                             </div>
                         </div>
                         <div class="column is-4">
                             <div class="control">
-                                <input class="input" type="text" asp-for="Input.Apartment" placeholder="Apartment, suite, etc.">
+                                <input class="input" type="text" asp-for="Input.Apartment" placeholder="Numer budynku/lokalu">
                                 <span asp-validation-for="Input.Apartment" class="has-text-danger"></span>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                     <div class="columns">
                         <div class="column is-8">
                             <div class="control has-icons-left">
-                                <input class="input" type="text" asp-for="Input.City" placeholder="City">
+                                <input class="input" type="text" asp-for="Input.City" placeholder="Miasto">
                                 <span class="icon is-small is-left">
                                     <i class='bx bxs-city' ></i>
                                 </span>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="column is-4">
                             <div class="control">
-                                <input class="input" type="text" asp-for="Input.PostalCode" placeholder="Postal code">
+                                <input class="input" type="text" asp-for="Input.PostalCode" placeholder="Kod pocztowy">
                                 <span asp-validation-for="Input.PostalCode" class="has-text-danger"></span>
                             </div>
                         </div>
@@ -103,7 +103,7 @@
                     <div class="columns">
                         <div class="column">
                             <div class="control has-icons-left">
-                                <input class="input" type="tel" asp-for="Input.Phone" placeholder="Phone">
+                                <input class="input" type="tel" asp-for="Input.Phone" placeholder="Nr telefonu komórkowego">
                                 <span class="icon is-small is-left">
                                     <i class='bx bx-phone' ></i>
                                 </span>
@@ -112,7 +112,7 @@
                         </div>
                         <div class="column">
                             <div class="control has-icons-left">
-                                <input class="input" type="text" asp-for="Input.Email" placeholder="Email">
+                                <input class="input" type="text" asp-for="Input.Email" placeholder="Adres e-mail">
                                 <span class="icon is-left is-small">
                                     <i class='bx bx-envelope'></i>
                                 </span>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
                 <div class="block has-text-centered">
-                    <p class="is-size-4">Payment method</p>
+                    <p class="is-size-4">Płatność</p>
                 </div>
                 <div class="control mb-5">
                     <div class="payment-selector has-text-centered">
@@ -148,7 +148,7 @@
                     <span asp-validation-for="Input.PaymentMethod" class="has-text-danger"></span>
                 </div>
                 <div class="has-text-centered">
-                    <button type="submit" class="button is-success is-medium">Pay $@Model.Cart.GetTotal()</button>
+                    <button type="submit" class="button is-success is-medium">Zapłać @Model.Cart.GetTotal() zł</button>
                 </div>
             </form>
         </div>     

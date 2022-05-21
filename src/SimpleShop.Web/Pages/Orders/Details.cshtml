@@ -8,14 +8,14 @@
     <div class="block">
         <div class="columns is-vcentered">
             <div class="column has-text-centered-mobile">
-                <h1 class="title">Order #@Model.Order.Number</h1>
+                <h1 class="title">Zamówienie #@Model.Order.Number</h1>
             </div>
             <div class="column has-text-centered-mobile has-text-right-desktop">
-                <button class="button is-success is-medium">Track</button>
+                <button class="button is-success is-medium">Śledź</button>
             </div>
         </div>
         <div class="block">
-            <p class="subtitle has-text-centered-mobile">Order date: @Model.Order.CreatedDate.ToString("MMMM dd, yyyy H:mm")</p>
+            <p class="subtitle has-text-centered-mobile">Data zamówienia: @Model.Order.CreatedDate.ToString("dd MMMM, yyyy H:mm")</p>
         </div>
         @foreach(var item in Model.Order.Items)
         {
@@ -28,9 +28,9 @@
                 <div class="media-content">
                     <div class="content">
                         <p class="is-size-5 mb-0">@item.Product.Name</p>
-                        <p class="mb-0">Size: @item.Size</p>
-                        <p class="mb-0 has-text-grey">Quantity: @item.Quantity</p>
-                        <p class="mb-0 is-size-5 has-text-weight-bold">$@(item.Product.Price * item.Quantity)</p>
+                        <p class="mb-0">Rozmiar: @item.Size</p>
+                        <p class="mb-0 has-text-grey">Ilość: @item.Quantity</p>
+                        <p class="mb-0 is-size-5 has-text-weight-bold">@(item.Product.Price * item.Quantity) zł</p>
                     </div>
                 </div>
             </article>
@@ -38,16 +38,16 @@
         <div class="columns">
             <div class="column is-6-desktop is-12-mobile">
                 <div class="block mt-5">
-                    <p class="subtitle">Delivery address</p>
+                    <p class="subtitle">Adres dostawy</p>
                 </div>
                 <p class="mb-2 has-text-weight-medium is-size-5">@($"{Model.Order.Details.FirstName} {Model.Order.Details.LastName}")</p>
-                <p>@($"{Model.Order.Details.Address} {Model.Order.Details.Apartment}")</p>
+                <p>@($"{Model.Order.Details.Street} {Model.Order.Details.Apartment}")</p>
                 <p>@($"{Model.Order.Details.PostalCode} {Model.Order.Details.City}")</p>
                 <p>@Model.Order.Details.Phone</p>
             </div>
             <div class="column is-6-desktop is-12-mobile">
                 <div class="block mt-5">
-                    <p class="subtitle">Payment method</p>
+                    <p class="subtitle">Płatność</p>
                 </div>
                 <span class="icon is-large">
                     <i class='bx bxl-@Model.Order.Details.PaymentMethod bx-lg'></i>

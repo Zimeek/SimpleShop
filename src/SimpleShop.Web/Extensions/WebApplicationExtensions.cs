@@ -8,7 +8,7 @@ namespace SimpleShop.Web.Extensions
     {
         public static void SetDefaultCulture(this WebApplication app)
         {
-            var defaultCulture = new CultureInfo("en-US");
+            var defaultCulture = new CultureInfo("pl-PL");
             defaultCulture.NumberFormat.NumberDecimalSeparator = ".";
             defaultCulture.NumberFormat.CurrencyDecimalSeparator = ".";
 

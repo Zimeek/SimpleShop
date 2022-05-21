@@ -1,7 +1,7 @@
 ﻿@page 
 @model SimpleShop.Web.Pages.Cart.IndexModel
 @{
-    ViewData["Title"] = "Cart";
+    ViewData["Title"] = "Koszyk";
 }
 
 <div class="container">
@@ -20,8 +20,8 @@
                         <div class="media-content">
                             <div class="content">
                                 <p class="is-size-5 mb-0">@item.Product.Name</p>
-                                <p class="mb-0">$@(item.Product.Price * item.Quantity)</p>
-                                <p class="mb-0">Size: @item.Size</p>
+                                <p class="mb-0">@(item.Product.Price * item.Quantity) zł</p>
+                                <p class="mb-0">Rozmiar: @item.Size</p>
                                 <div class="columns">
                                     <div class="column is-4 is-8-mobile">
                                         <div class="field has-addons">
@@ -56,17 +56,17 @@
                 }
                 <article class="media is-flex is-justify-content-space-between">
                     <div class="media-left">
-                        <p class="mb-2">Shipping:</p>
-                        <p class="has-text-weight-medium">Total:</p>
+                        <p class="mb-2">Dostawa:</p>
+                        <p class="has-text-weight-medium">Suma:</p>
                     </div>
                     <div class="media-right">
-                        <p class="has-text-success mb-2">FREE</p>
-                        <p class="has-text-weight-medium">$@Model.Cart.GetTotal()</p>
+                        <p class="has-text-success mb-2">DARMOWA</p>
+                        <p class="has-text-weight-medium">@Model.Cart.GetTotal() zł</p>
                     </div>
                 </article>
                 <div class="field mt-2">
                     <div class="control is-flex is-justify-content-center">
-                        <a class="button is-dark" asp-page="Checkout" asp-area="">Proceed to checkout</a>
+                        <a class="button is-dark" asp-page="Checkout" asp-area="">Przejdź do kasy</a>
                     </div>
                 </div>
             </div>
@@ -80,8 +80,8 @@
             </span>
         </div>
         <div class="has-text-centered">
-            <p class="has-text-weight-medium subtitle">Looks like your shopping cart is empty!</p>
-            <a class="button is-outlined" asp-area="" asp-page="/Index">Return to shop</a>
+            <p class="has-text-weight-medium subtitle">Wygląda na to, że twój koszyk jest pusty!</p>
+            <a class="button is-outlined" asp-area="" asp-page="/Index">Powrót do sklepu</a>
         </div>
     }
 </div>

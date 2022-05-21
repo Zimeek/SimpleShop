@@ -1,7 +1,7 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "Strona główna";
 }
 <div class="container">
     @if(Model.Products.Any())
@@ -20,7 +20,7 @@
                         </div>
                         <div class="card-content pt-1 pl-0">
                             <p class="is-size-5">@product.Name</p>
-                            <p class="has-text-weight-medium">$@product.Price</p>
+                            <p class="has-text-weight-medium">@product.Price zł</p>
                         </div>
                     </div>
                 </div>

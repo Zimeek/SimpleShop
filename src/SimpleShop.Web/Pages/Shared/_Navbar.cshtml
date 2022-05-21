@@ -21,7 +21,7 @@
                         <span class="icon is-hidden-touch">
                             <i class='bx bx-cart bx-sm'></i>
                         </span>
-                        <span class="is-hidden-desktop">Cart</span>
+                        <span class="is-hidden-desktop">Koszyk</span>
                     </span>
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -30,15 +30,15 @@
                         <span class="icon is-hidden-touch">
                             <i class='bx bx-user bx-sm'></i>
                         </span>                    
-                        <span class="is-hidden-desktop">Account</span>
+                        <span class="is-hidden-desktop">Konto</span>
                     </span>
                     </a>
                     <div class="navbar-dropdown is-right">
                         <a class="navbar-item">@UserManager.GetUserName(User)</a>
                         <hr class="navbar-divider">
-                        <a class="navbar-item" asp-page="/Orders/Index" asp-area="">My Orders</a>
+                        <a class="navbar-item" asp-page="/Orders/Index" asp-area="">Moje zamówienia</a>
                         <hr class="navbar-divider">
-                        <a class="navbar-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+                        <a class="navbar-item" asp-area="Identity" asp-page="/Account/Logout">Wyloguj</a>
                     </div>
                 </div>
             }

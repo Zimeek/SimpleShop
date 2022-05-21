@@ -1,14 +1,14 @@
 ﻿@page
 @model SimpleShop.Web.Pages.Orders.IndexModel
 @{
-    ViewData["Title"] = "Orders";
+    ViewData["Title"] = "Zamówienia";
 }
 
 <div class="container">
     @if(Model.Orders.Any())
     {
         <div class="block has-text-centered-mobile">
-            <h1 class="title">My orders</h1>
+            <h1 class="title">Moje zamówienia</h1>
         </div>
         <div class="list has-border has-visible-pointer-controls">
             @foreach(var order in Model.Orders)
@@ -16,15 +16,15 @@
                 <div class="list-item p-5">
                     <div class="list-item-content">
                         <div class="list-item-title">
-                            Order #@order.Number
+                            Zamówienie #@order.Number
                         </div>
                         <div class="list-item-description">
-                            Order date: @order.CreatedDate.ToString("MMMM dd, yyyy H:mm")
+                            Data zamówienia: @order.CreatedDate.ToString("dd MMMM, yyyy H:mm")
                         </div>
                     </div>
                     <div class="list-item-controls">
                         <div class="is-right">
-                            <a class="button is-dark" asp-page="Details" asp-route-id="@order.Id">Details</a>
+                            <a class="button is-dark" asp-page="Details" asp-route-id="@order.Id">Szczegóły</a>
                         </div>
                     </div>
                 </div>
@@ -39,8 +39,8 @@
             </span>
         </div>
         <div class="has-text-centered">
-            <p class="subtitle has-text-weight-medium">You haven't placed any orders yet!</p>
-            <a class="button is-outlined" asp-area="" asp-page="/Index">Return to shop</a>
+            <p class="subtitle has-text-weight-medium">Wygląda na to, że nie złożyłeś jeszcze żadnego zamówienia!</p>
+            <a class="button is-outlined" asp-area="" asp-page="/Index">Powrót do sklepu</a>
         </div>
     }
 </div>
