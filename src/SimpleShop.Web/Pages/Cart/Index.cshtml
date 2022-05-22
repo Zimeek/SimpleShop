@@ -8,7 +8,7 @@
     @if (!Model.Cart.IsEmpty)
     {
         <div class="columns is-centered is-vcentered">
-            <div class="column has-border">
+            <div class="column">
                 @foreach(var item in Model.Cart.Items)
                 {
                     <article class="media">
@@ -20,7 +20,7 @@
                         <div class="media-content">
                             <div class="content">
                                 <p class="is-size-5 mb-0">@item.Product.Name</p>
-                                <p class="mb-0">@(item.Product.Price * item.Quantity) zł</p>
+                                <p class="mb-0 has-text-weight-medium">@(item.Product.Price * item.Quantity) zł</p>
                                 <p class="mb-0">Rozmiar: @item.Size</p>
                                 <div class="columns">
                                     <div class="column is-4 is-8-mobile">

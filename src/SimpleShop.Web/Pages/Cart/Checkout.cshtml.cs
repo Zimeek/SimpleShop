@@ -8,6 +8,8 @@ using SimpleShop.Application.Queries.Carts;
 using SimpleShop.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
+#nullable disable
+
 namespace SimpleShop.Web.Pages.Cart
 {
     public class CheckoutModel : PageModel
@@ -125,7 +127,8 @@ namespace SimpleShop.Web.Pages.Cart
                     PostalCode = Input.PostalCode,
                     Phone = Input.Phone,
                     Email = Input.Email,
-                    PaymentMethod = Input.PaymentMethod
+                    PaymentMethod = Input.PaymentMethod,
+                    Total = Cart.GetTotal()
                 };
 
                 await _mediator.Send(new AddOrderItems.Command(orderItems));

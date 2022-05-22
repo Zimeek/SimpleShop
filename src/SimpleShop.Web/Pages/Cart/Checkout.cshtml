@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="columns is-centered">
-        <div class="column is-7 m-1 has-border">
+        <div class="column is-7 m-1">
             
             <div class="block has-text-centered">
                 <p class="is-size-4">Podsumowanie koszyka</p>
@@ -22,9 +22,10 @@
                     <div class="media-content">
                         <p class="is-size-5 mb-0">@item.Product.Name</p>
                         <p class="mb-0">Rozmiar: @item.Size</p>
+                        <p class="mb-0">Ilość: @item.Quantity</p>
                     </div>
                     <div class="media-right">
-                        <p class="has-text-weight-medium">@item.Quantity x @item.Product.Price zł</p>
+                        <p class="has-text-weight-medium">@(item.Quantity * item.Product.Price) zł</p>
                     </div>
                 </article>
             }
@@ -33,13 +34,13 @@
                     <p class="mb-2">Dostawa:</p>
                     <p class="has-text-weight-medium">Suma:</p>
                 </div>
-                <div class="media-right">
+                <div class="media-right has-text-right">
                     <p class="has-text-success mb-2">DARMOWA</p>
                     <p class="has-text-weight-medium">@Model.Cart.GetTotal() zł</p>
                 </div>
             </article>
         </div>
-        <div class="column is-4 m-1 has-border">
+        <div class="column is-4 m-1">
             <form class="mb-5" method="post">
                 <div class="block has-text-centered">
                     <p class="is-size-4">Dostawa</p>

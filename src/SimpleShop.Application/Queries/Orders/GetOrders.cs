@@ -25,6 +25,7 @@ namespace SimpleShop.Application.Queries.Orders
                     .Include(o => o.Items)
                     .ThenInclude(oi => oi.Product)
                     .Include(o => o.Details)
+                    .OrderByDescending(o => o.CreatedDate)
                     .ToListAsync();
 
                 return orders;
