@@ -25,14 +25,17 @@ namespace SimpleShop.Application.Commands.Carts
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
             {
-                var cartItems = await _context.CartItems
-                    .Where(ci => ci.CartId.Equals(request.cartId))
-                    .ToListAsync();
+                var cart = await _context.Carts
+                    .Include(c => c.Items)
+                    .SingleOrDefaultAsync(c => c.Id.Equals(request.cartId));
 
-                Guard.Against.NullOrEmpty(cartItems, nameof(cartItems));
+                Guard.Against.Null(cart, nameof(cart));
 
-                _context.RemoveRange(cartItems);
-                await _context.SaveChangesAsync();
+                if(!cart.IsEmpty)
+                {
+                    _context.RemoveRange(cart.Items);
+                    await _context.SaveChangesAsync();
+                }
 
                 return Unit.Value;
             }

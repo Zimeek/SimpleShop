@@ -2,11 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using SimpleShop.Domain.Entities;
 using SimpleShop.Infrastructure.Database;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SimpleShop.Application.Queries.Products
 {
