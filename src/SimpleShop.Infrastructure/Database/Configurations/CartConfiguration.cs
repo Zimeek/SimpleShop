@@ -10,6 +10,7 @@ namespace SimpleShop.Infrastructure.Database.Configurations
         {
             builder
                 .Ignore(c => c.IsEmpty)
+                .Ignore(c => c.ItemsCount)
                 .HasKey(c => c.Id);
 
             builder

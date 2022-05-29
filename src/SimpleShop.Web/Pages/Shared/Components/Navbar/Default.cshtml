@@ -1,7 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-@using SimpleShop.Domain.Entities
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+﻿@model SimpleShop.Domain.Entities.Cart?
 
 <nav class="navbar is-fixed-top has-shadow is-white has-border" role="navigation">
     <div class="navbar-brand">
@@ -14,7 +11,7 @@
     </div>
     <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-end">
-            @if(SignInManager.IsSignedIn(User))
+            @if(@Model is not null)
             {
                 <a class="navbar-item" asp-page="/Cart/Index" asp-area="">
                     <span class="icon-text">
@@ -22,6 +19,7 @@
                             <i class='bx bx-cart bx-sm'></i>
                         </span>
                         <span class="is-hidden-desktop">Koszyk</span>
+                        <span>(@Model.ItemsCount)</span>
                     </span>
                 </a>
                 <div class="navbar-item has-dropdown is-hoverable">
@@ -34,8 +32,6 @@
                     </span>
                     </a>
                     <div class="navbar-dropdown is-right">
-                        <a class="navbar-item">@UserManager.GetUserName(User)</a>
-                        <hr class="navbar-divider">
                         <a class="navbar-item" asp-page="/Orders/Index" asp-area="">Moje zamówienia</a>
                         <hr class="navbar-divider">
                         <a class="navbar-item" asp-area="Identity" asp-page="/Account/Logout">Wyloguj</a>

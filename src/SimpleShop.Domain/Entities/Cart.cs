@@ -10,6 +10,8 @@
 
         public bool IsEmpty => !Items.Any();
 
+        public int ItemsCount => Items.Sum(i => i.Quantity);
+
         public decimal GetTotal()
         {
             var total = 0m;

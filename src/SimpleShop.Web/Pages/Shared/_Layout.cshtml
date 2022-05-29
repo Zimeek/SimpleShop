@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="~/SimpleShop.Web.styles.css" asp-append-version="true" />
 </head>
 <body class="has-navbar-fixed-top">
-    <partial name="_Navbar" />
+    @await Component.InvokeAsync("Navbar")
     <section class="section" id="wrapper">
         @RenderBody()
     </section>
